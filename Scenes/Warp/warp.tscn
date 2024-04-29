@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmoof8e4pvlor"]
+
+[ext_resource type="Texture2D" uid="uid://bo8axi35l5kpb" path="res://Pacman_Tileset.png" id="1_4g8nc"]
+[ext_resource type="Script" path="res://Scenes/Warp/warp.gd" id="1_fc4qs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2mqw"]
+size = Vector2(16, 16)
+
+[node name="Warp" type="Area2D"]
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("1_fc4qs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4g8nc")
+region_enabled = true
+region_rect = Rect2(32, 48, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v2mqw")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
