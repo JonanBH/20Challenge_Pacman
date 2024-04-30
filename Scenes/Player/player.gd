@@ -23,10 +23,10 @@ var angles = {
 
 @onready var sprite = $AnimatedSprite2D
 @onready var raycasts = {
-	"up": $Raycasts/RayCast2D_up,
-	"down": $Raycasts/RayCast2D_down,
-	"left": $Raycasts/RayCast2D_left,
-	"right":$Raycasts/RayCast2D_right
+	"up": $Raycasts/ShapeCast2D_up,
+	"down": $Raycasts/ShapeCast2D_down,
+	"left": $Raycasts/ShapeCast2D_left,
+	"right": $Raycasts/ShapeCast2D_right
 }
 
 var buffered_move : String = ""

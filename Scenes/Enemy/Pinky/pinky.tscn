@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://x7cwf8sdtas0"]
+
+[ext_resource type="PackedScene" uid="uid://bh2tr0uymgqru" path="res://Scenes/Enemy/enemy.tscn" id="1_rw24u"]
+[ext_resource type="Script" path="res://Scenes/Enemy/Pinky/pinky.gd" id="2_g8ajq"]
+
+[node name="Pinky" instance=ExtResource("1_rw24u")]
+script = ExtResource("2_g8ajq")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+modulate = Color(0.982131, 0.27985, 1, 1)
+
+[node name="NavigationAgent2D" parent="." index="2"]
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.936042, 0.115944, 1, 1)

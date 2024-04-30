@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ouh3gj6rxr0"]
+
+[ext_resource type="PackedScene" uid="uid://bddkljvh3gjwl" path="res://Scenes/Coin/colectable.tscn" id="1_l57s4"]
+[ext_resource type="Script" path="res://Scenes/Coin/PowerPellet/power_pellet.gd" id="2_vwjfh"]
+
+[node name="PowerPellet" instance=ExtResource("1_l57s4")]
+script = ExtResource("2_vwjfh")
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(16, 48, 16, 16)

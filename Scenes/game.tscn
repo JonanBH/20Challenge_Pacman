@@ -1,9 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcddbw53m8xq"]
+[gd_scene load_steps=12 format=3 uid="uid://dcddbw53m8xq"]
 
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_24mwn"]
 [ext_resource type="Texture2D" uid="uid://bo8axi35l5kpb" path="res://Pacman_Tileset.png" id="1_bkjas"]
-[ext_resource type="PackedScene" uid="uid://bddkljvh3gjwl" path="res://Scenes/Coin/colectable.tscn" id="2_4f5t5"]
 [ext_resource type="PackedScene" uid="uid://diwuois3yefss" path="res://Scenes/Player/player.tscn" id="3_bvx83"]
 [ext_resource type="PackedScene" uid="uid://dmoof8e4pvlor" path="res://Scenes/Warp/warp.tscn" id="4_uly50"]
+[ext_resource type="PackedScene" uid="uid://c1jgxpxqqljgx" path="res://Scenes/Enemy/Blinky/blinky.tscn" id="5_3s70i"]
+[ext_resource type="PackedScene" uid="uid://x7cwf8sdtas0" path="res://Scenes/Enemy/Pinky/pinky.tscn" id="6_o7pul"]
+[ext_resource type="PackedScene" uid="uid://cwpxm4n3o2yjp" path="res://Scenes/Enemy/Inky/inky.tscn" id="7_v630e"]
+[ext_resource type="PackedScene" uid="uid://dvsx2n2cgfe1f" path="res://Scenes/Enemy/Clyde/clyde.tscn" id="8_ab2bt"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7j1mg"]
+vertices = PackedVector2Array(153, 153, 119, 153, 119, 135, 153, 135, 249, 297, 23, 297, 87, 295, 89, 295, 247, 249, 185, 249, 119, 247, 121, 247, 249, 57, 217, 57, 167, 55, 169, 55, 25, 295, 87, 151, 87, 89, 89, 89, 89, 215, 119, 57, 57, 57, 71, 55, 73, 55, 119, 217, 57, 217, 87, 215, 215, 87, 215, 57, 217, 119, 153, 57, 151, 55, 215, 151, 215, 89, 217, 121, 217, 183, 215, 215, 215, 153, 217, 185, 217, 247, 57, 215, 119, 87, 121, 55, 121, 103, 119, 89, 25, 55, 55, 57, 249, 23, 247, 55, 247, 25, 199, 23, 201, 25, 199, 55, 201, 55, 105, 55, 151, 103, 153, 87, 249, 247, 247, 295, 215, 247, 23, 247, 25, 249, 55, 247, 87, 249, 281, 119, 281, 121, 185, 89, 281, 183, 281, 185, 185, 151, 185, 153, 185, 215, 183, 215, 183, 89, 153, 89, 153, 105, 119, 105, 57, 87, 57, 89, 215, 217, 153, 217, 153, 215, 185, 295, 183, 295, 183, 249, 89, 249, 57, 247, 55, 185, -9, 185, -9, 183, 55, 183, 55, 121, -9, 121, -9, 119, 55, 119, 153, 247, 151, 247, 151, 185, 153, 183, 119, 183, 121, 185, 119, 215, 169, 23, 167, 25, 103, 23, 105, 25, 103, 55, 73, 23, 71, 25, 23, 23, 25, 25, 23, 57, 57, 151, 57, 153, 87, 153)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 6, 5), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 20), PackedInt32Array(28, 29, 13, 30), PackedInt32Array(14, 13, 29), PackedInt32Array(14, 29, 31, 32), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(41, 27, 26), PackedInt32Array(42, 43, 44, 45), PackedInt32Array(43, 42, 21), PackedInt32Array(46, 23, 22, 47), PackedInt32Array(48, 12, 49, 50), PackedInt32Array(51, 48, 50, 52), PackedInt32Array(53, 51, 52, 54), PackedInt32Array(55, 43, 21), PackedInt32Array(56, 32, 31, 57), PackedInt32Array(58, 4, 59, 8), PackedInt32Array(40, 58, 8), PackedInt32Array(40, 8, 60), PackedInt32Array(16, 5, 61, 62), PackedInt32Array(62, 61, 63, 64), PackedInt32Array(30, 65, 66, 35), PackedInt32Array(30, 35, 34, 28), PackedInt32Array(57, 28, 34, 67), PackedInt32Array(36, 68, 69, 39), PackedInt32Array(36, 39, 38, 33), PackedInt32Array(70, 33, 38, 71), PackedInt32Array(71, 72, 73, 74), PackedInt32Array(70, 71, 74), PackedInt32Array(67, 70, 74), PackedInt32Array(57, 67, 74), PackedInt32Array(57, 74, 75), PackedInt32Array(56, 57, 75), PackedInt32Array(56, 75, 76), PackedInt32Array(56, 76, 77, 44), PackedInt32Array(44, 77, 45), PackedInt32Array(78, 42, 45, 19), PackedInt32Array(78, 19, 18), PackedInt32Array(78, 18, 79), PackedInt32Array(40, 60, 80), PackedInt32Array(37, 40, 80), PackedInt32Array(72, 37, 80, 81), PackedInt32Array(73, 72, 81), PackedInt32Array(82, 73, 81), PackedInt32Array(9, 83, 84, 85), PackedInt32Array(10, 9, 85), PackedInt32Array(10, 85, 86, 87), PackedInt32Array(88, 89, 90, 91), PackedInt32Array(92, 93, 94, 95), PackedInt32Array(54, 49, 12), PackedInt32Array(83, 59, 4), PackedInt32Array(96, 60, 8), PackedInt32Array(96, 8, 97), PackedInt32Array(81, 96, 97, 98), PackedInt32Array(82, 81, 98), PackedInt32Array(99, 82, 98), PackedInt32Array(100, 99, 98, 101), PackedInt32Array(102, 100, 101, 11), PackedInt32Array(53, 54, 12), PackedInt32Array(15, 53, 12), PackedInt32Array(103, 15, 14, 104), PackedInt32Array(105, 103, 104, 106), PackedInt32Array(107, 105, 106, 55), PackedInt32Array(107, 55, 21), PackedInt32Array(24, 107, 21), PackedInt32Array(108, 24, 23, 109), PackedInt32Array(110, 108, 109, 111), PackedInt32Array(112, 110, 111, 46), PackedInt32Array(47, 112, 46), PackedInt32Array(47, 22, 78, 95), PackedInt32Array(95, 78, 79), PackedInt32Array(95, 79, 113, 92), PackedInt32Array(91, 92, 113), PackedInt32Array(88, 91, 113), PackedInt32Array(63, 88, 113, 114), PackedInt32Array(84, 83, 4), PackedInt32Array(7, 84, 4), PackedInt32Array(86, 7, 6, 64), PackedInt32Array(87, 86, 64, 63), PackedInt32Array(26, 87, 63), PackedInt32Array(41, 26, 63), PackedInt32Array(114, 41, 63), PackedInt32Array(114, 113, 17, 115), PackedInt32Array(115, 17, 20), PackedInt32Array(27, 115, 20), PackedInt32Array(25, 20, 102), PackedInt32Array(25, 102, 11), PackedInt32Array(10, 25, 11), PackedInt32Array(8, 11, 97)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, 264, 8, 264, 72, 232, 72, 232, 104, 296, 104, 296, 136, 232, 136, 232, 168, 296, 168, 296, 200, 232, 200, 232, 232, 264, 232, 264, 312, 8, 312, 8, 232, 40, 232, 40, 200, -24, 200, -24, 168, 40, 168, 40, 136, -24, 136, -24, 104, 40, 104, 40, 72, 8, 72)])
+source_geometry_mode = 1
+source_geometry_group_name = &"navigation"
+agent_radius = 7.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_krnw4"]
 texture = ExtResource("1_bkjas")
@@ -630,6 +642,15 @@ texture = ExtResource("1_bkjas")
 0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:7/0/physics_layer_0/angular_velocity = 0.0
 0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_annhw"]
 physics_layer_0/collision_layer = 1
@@ -642,458 +663,26 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_krnw4")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_24mwn")
+level_color = Color(1, 0.686622, 0.709024, 1)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_7j1mg")
+
+[node name="TileMap" type="TileMap" parent="NavigationRegion2D" groups=["navigation"]]
 texture_filter = 1
 tile_set = SubResource("TileSet_annhw")
 format = 2
+layer_0/name = "Walls"
 layer_0/tile_data = PackedInt32Array(131074, 65536, 7, 131075, 196608, 7, 196608, 0, 5, 131072, 0, 5, 65536, 0, 5, 0, 65536, 4, 1, 131072, 7, 2, 131072, 7, 3, 131072, 7, 4, 131072, 7, 5, 131072, 4, 262144, 65536, 6, 262145, 131072, 7, 262146, 196608, 4, 327682, 0, 5, 393218, 196608, 6, 393217, 131072, 7, 393216, 131072, 7, 524288, 131072, 7, 524289, 131072, 7, 524290, 196608, 4, 589826, 0, 5, 655362, 196608, 6, 655361, 131072, 7, 655360, 131072, 7, 786432, 131072, 7, 786433, 131072, 7, 786434, 196608, 4, 851970, 0, 5, 917506, 196608, 6, 917505, 131072, 7, 917504, 65536, 4, 983040, 0, 5, 1048576, 0, 5, 1114112, 0, 5, 1179648, 0, 5, 1245184, 65536, 6, 1245185, 131072, 7, 1245186, 131072, 7, 1245187, 131072, 7, 1245188, 131072, 7, 1245189, 131072, 7, 1245190, 131072, 7, 1245191, 131072, 7, 917508, 65536, 7, 917509, 131072, 7, 917510, 196608, 7, 65541, 0, 5, 131077, 0, 6, 6, 131072, 7, 7, 131072, 7, 8, 131072, 7, 9, 131072, 7, 10, 131072, 7, 11, 131072, 4, 65547, 0, 5, 131083, 0, 6, 12, 131072, 7, 13, 131072, 7, 14, 131072, 7, 15, 131072, 7, 16, 196608, 4, 65552, 0, 5, 131088, 0, 5, 196624, 0, 5, 262160, 196608, 6, 262159, 131072, 7, 262158, 65536, 4, 327694, 0, 5, 393230, 65536, 6, 393231, 131072, 7, 393232, 131072, 7, 524304, 131072, 7, 524303, 131072, 7, 524302, 65536, 4, 589838, 0, 5, 655374, 65536, 6, 655375, 131072, 7, 655376, 131072, 7, 786448, 131072, 7, 786447, 131072, 7, 786446, 65536, 4, 851982, 0, 5, 917518, 65536, 6, 917519, 131072, 7, 917520, 196608, 4, 1245192, 131072, 7, 1245193, 131072, 7, 1245194, 131072, 7, 1245195, 131072, 7, 1245196, 131072, 7, 1245197, 131072, 7, 1245198, 131072, 7, 1245199, 131072, 7, 1245200, 196608, 6, 1179664, 0, 5, 1114128, 0, 5, 1048592, 0, 5, 983056, 0, 5, 1048578, 524288, 4, 1114114, 524288, 7, 1114115, 589824, 7, 1114116, 720896, 7, 1048580, 720896, 4, 1048579, 655360, 4, 1048582, 524288, 4, 1114118, 524288, 7, 1048583, 655360, 4, 1048584, 655360, 4, 1048585, 655360, 4, 1048586, 720896, 4, 1114119, 589824, 7, 1114120, 589824, 7, 1114121, 589824, 7, 1114122, 720896, 7, 1048590, 720896, 4, 1048589, 655360, 4, 1048588, 524288, 4, 1114124, 524288, 7, 1114125, 589824, 7, 1114126, 720896, 7, 917514, 65536, 7, 917515, 131072, 7, 917516, 196608, 7, 917512, 0, 6, 851976, 0, 5, 786440, 0, 4, 131085, 65536, 7, 131086, 196608, 7, 786436, 0, 6, 720900, 0, 5, 655364, 0, 4, 524292, 0, 6, 458756, 0, 5, 393220, 0, 4, 262148, 65536, 7, 262149, 131072, 7, 262150, 196608, 7, 262156, 196608, 7, 262155, 131072, 7, 262154, 65536, 7, 524300, 0, 6, 458764, 0, 5, 393228, 0, 4, 786444, 0, 6, 720908, 0, 5, 655372, 0, 4, 786442, 0, 6, 720906, 0, 5, 655370, 196608, 5, 655369, 131072, 7, 655368, 131072, 7, 655367, 131072, 7, 655366, 65536, 5, 720902, 0, 5, 786438, 0, 6, 589830, 0, 5, 524294, 0, 5, 589834, 0, 5, 524298, 0, 5, 458762, 196608, 5, 458761, 65536, 7, 458758, 65536, 5, 458759, 196608, 7, 327688, 0, 6, 262152, 0, 5, 196616, 0, 5, 131080, 131072, 4, 131079, 65536, 7, 131081, 196608, 7, 393222, 0, 4, 393226, 0, 4, 458760, 393216, 3, 589823, 131072, 7, 589822, 65536, 6, 524286, 0, 5, 458750, 65536, 4, 458751, 131072, 7, 524305, 131072, 7, 524306, 196608, 6, 458770, 0, 5, 393234, 196608, 4, 393233, 131072, 7, 786449, 131072, 7, 786450, 196608, 6, 720914, 0, 5, 655378, 196608, 4, 655377, 131072, 7, 851967, 131072, 7, 851966, 65536, 6, 786430, 0, 5, 720894, 65536, 4, 720895, 131072, 7)
+layer_1/name = "Back"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Spawnable"
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array(1179650, 0, 3, 1179651, 0, 3, 1179652, 0, 3, 1179653, 0, 3, 1179654, 0, 3, 1179655, 0, 3, 1179656, 0, 3, 1179657, 0, 3, 1179658, 0, 3, 1179659, 0, 3, 1179660, 0, 3, 1179661, 0, 3, 1179662, 0, 3, 1114127, 0, 3, 1048591, 0, 3, 983055, 0, 3, 983054, 0, 3, 983053, 0, 3, 983052, 0, 3, 983051, 0, 3, 983050, 0, 3, 983049, 0, 3, 1048587, 0, 3, 1114123, 0, 3, 983047, 0, 3, 983046, 0, 3, 983045, 0, 3, 983044, 0, 3, 983043, 0, 3, 983042, 0, 3, 983041, 0, 3, 1048577, 0, 3, 1114113, 0, 3, 1114117, 0, 3, 1048581, 0, 3, 917507, 0, 3, 851971, 0, 3, 786435, 0, 3, 720899, 0, 3, 720898, 0, 3, 720897, 0, 3, 458753, 0, 3, 458754, 0, 3, 458755, 0, 3, 524291, 0, 3, 589827, 0, 3, 655363, 0, 3, 393219, 0, 3, 327683, 0, 3, 262147, 0, 3, 196611, 0, 3, 196610, 0, 3, 196609, 0, 3, 131073, 0, 3, 65538, 0, 3, 65539, 0, 3, 65540, 0, 3, 131076, 0, 3, 196612, 0, 3, 196613, 0, 3, 196614, 0, 3, 196615, 0, 3, 131078, 0, 3, 65542, 0, 3, 65543, 0, 3, 65544, 0, 3, 65545, 0, 3, 65546, 0, 3, 131082, 0, 3, 196618, 0, 3, 196617, 0, 3, 262153, 0, 3, 327689, 0, 3, 393225, 0, 3, 393224, 0, 3, 393223, 0, 3, 327687, 0, 3, 262151, 0, 3, 327686, 0, 3, 327685, 0, 3, 327684, 0, 3, 393221, 0, 3, 458757, 0, 3, 524293, 0, 3, 589829, 0, 3, 655365, 0, 3, 720901, 0, 3, 786437, 0, 3, 851973, 0, 3, 851972, 0, 3, 851974, 0, 3, 851975, 0, 3, 917511, 0, 3, 589828, 0, 3, 720903, 0, 3, 786439, 0, 3, 720904, 0, 3, 720905, 0, 3, 786441, 0, 3, 851977, 0, 3, 917513, 0, 3, 851978, 0, 3, 851979, 0, 3, 851980, 0, 3, 851981, 0, 3, 917517, 0, 3, 786443, 0, 3, 720907, 0, 3, 655371, 0, 3, 589835, 0, 3, 524299, 0, 3, 458763, 0, 3, 393227, 0, 3, 327690, 0, 3, 327691, 0, 3, 327692, 0, 3, 327693, 0, 3, 196619, 0, 3, 196620, 0, 3, 196621, 0, 3, 196622, 0, 3, 131087, 0, 3, 196623, 0, 3, 65550, 0, 3, 65549, 0, 3, 65548, 0, 3, 131084, 0, 3, 262157, 0, 3, 393229, 0, 3, 458765, 0, 3, 524301, 0, 3, 589836, 0, 3, 655373, 0, 3, 589837, 0, 3, 720909, 0, 3, 786445, 0, 3, 720910, 0, 3, 720911, 0, 3, 458766, 0, 3, 458767, 0, 3, 1179663, 65536, 3, 1179649, 65536, 3, 65537, 65536, 3, 65551, 65536, 3, 720896, 0, 3, 458752, 0, 3, 458768, 0, 3, 720912, 0, 3)
 
 [node name="Coins" type="Node" parent="."]
-
-[node name="Colectable" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(24, 24)
-
-[node name="Colectable2" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(40, 24)
-
-[node name="Colectable3" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 24)
-
-[node name="Colectable4" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(72, 24)
-
-[node name="Colectable5" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(72, 40)
-
-[node name="Colectable6" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(72, 56)
-
-[node name="Colectable7" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 56)
-
-[node name="Colectable8" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(40, 56)
-
-[node name="Colectable9" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(24, 56)
-
-[node name="Colectable10" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(24, 40)
-
-[node name="Colectable11" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 56)
-
-[node name="Colectable12" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(104, 56)
-
-[node name="Colectable13" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(104, 40)
-
-[node name="Colectable14" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(104, 24)
-
-[node name="Colectable15" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 24)
-
-[node name="Colectable16" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(136, 24)
-
-[node name="Colectable17" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 24)
-
-[node name="Colectable18" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(168, 24)
-
-[node name="Colectable19" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(168, 40)
-
-[node name="Colectable20" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(168, 56)
-
-[node name="Colectable21" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 56)
-
-[node name="Colectable22" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(200, 56)
-
-[node name="Colectable23" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(200, 40)
-
-[node name="Colectable24" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(200, 24)
-
-[node name="Colectable25" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 24)
-
-[node name="Colectable26" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(232, 24)
-
-[node name="Colectable27" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(248, 24)
-
-[node name="Colectable28" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(248, 40)
-
-[node name="Colectable29" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(248, 56)
-
-[node name="Colectable30" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(232, 56)
-
-[node name="Colectable31" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 56)
-
-[node name="Colectable32" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 72)
-
-[node name="Colectable33" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 88)
-
-[node name="Colectable36" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(168, 88)
-
-[node name="Colectable37" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 88)
-
-[node name="Colectable38" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 72)
-
-[node name="Colectable39" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 56)
-
-[node name="Colectable40" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 56)
-
-[node name="Colectable41" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 72)
-
-[node name="Colectable42" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 88)
-
-[node name="Colectable43" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(104, 88)
-
-[node name="Colectable44" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 88)
-
-[node name="Colectable45" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(72, 88)
-
-[node name="Colectable46" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 88)
-
-[node name="Colectable47" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 72)
-
-[node name="Colectable48" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 104)
-
-[node name="Colectable49" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 120)
-
-[node name="Colectable50" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(40, 120)
-
-[node name="Colectable51" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(24, 120)
-
-[node name="Colectable52" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(8, 120)
-
-[node name="Colectable53" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 136)
-
-[node name="Colectable54" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 152)
-
-[node name="Colectable55" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 168)
-
-[node name="Colectable56" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 184)
-
-[node name="Colectable57" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(40, 184)
-
-[node name="Colectable58" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(24, 184)
-
-[node name="Colectable59" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(8, 184)
-
-[node name="Colectable60" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 200)
-
-[node name="Colectable61" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 216)
-
-[node name="Colectable62" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 232)
-
-[node name="Colectable63" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 248)
-
-[node name="Colectable64" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(40, 248)
-
-[node name="Colectable65" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(24, 248)
-
-[node name="Colectable66" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(24, 264)
-
-[node name="Colectable67" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(24, 280)
-
-[node name="Colectable68" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(24, 296)
-
-[node name="Colectable69" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(40, 296)
-
-[node name="Colectable70" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(72, 296)
-
-[node name="Colectable71" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(56, 296)
-
-[node name="Colectable72" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 296)
-
-[node name="Colectable73" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 296)
-
-[node name="Colectable74" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(136, 296)
-
-[node name="Colectable75" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(104, 296)
-
-[node name="Colectable76" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 296)
-
-[node name="Colectable77" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(168, 296)
-
-[node name="Colectable78" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 296)
-
-[node name="Colectable79" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(200, 296)
-
-[node name="Colectable80" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 296)
-
-[node name="Colectable81" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(232, 296)
-
-[node name="Colectable82" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(248, 296)
-
-[node name="Colectable83" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(248, 280)
-
-[node name="Colectable84" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(248, 264)
-
-[node name="Colectable85" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(248, 248)
-
-[node name="Colectable86" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(232, 248)
-
-[node name="Colectable87" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 248)
-
-[node name="Colectable88" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(200, 248)
-
-[node name="Colectable89" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 248)
-
-[node name="Colectable90" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(168, 248)
-
-[node name="Colectable91" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 248)
-
-[node name="Colectable93" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 248)
-
-[node name="Colectable94" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(104, 248)
-
-[node name="Colectable95" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 248)
-
-[node name="Colectable96" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(72, 248)
-
-[node name="Colectable97" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 264)
-
-[node name="Colectable98" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 280)
-
-[node name="Colectable99" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 280)
-
-[node name="Colectable100" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 264)
-
-[node name="Colectable101" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 216)
-
-[node name="Colectable102" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(200, 216)
-
-[node name="Colectable103" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 216)
-
-[node name="Colectable104" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 232)
-
-[node name="Colectable105" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 232)
-
-[node name="Colectable106" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 216)
-
-[node name="Colectable107" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(168, 216)
-
-[node name="Colectable108" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 200)
-
-[node name="Colectable109" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 184)
-
-[node name="Colectable110" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(136, 184)
-
-[node name="Colectable111" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 184)
-
-[node name="Colectable112" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 200)
-
-[node name="Colectable113" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 216)
-
-[node name="Colectable114" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 232)
-
-[node name="Colectable115" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(104, 216)
-
-[node name="Colectable116" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 216)
-
-[node name="Colectable117" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(72, 216)
-
-[node name="Colectable118" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 200)
-
-[node name="Colectable119" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 184)
-
-[node name="Colectable120" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 168)
-
-[node name="Colectable121" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 152)
-
-[node name="Colectable122" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(72, 152)
-
-[node name="Colectable123" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 136)
-
-[node name="Colectable124" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 120)
-
-[node name="Colectable125" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(88, 104)
-
-[node name="Colectable126" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 104)
-
-[node name="Colectable127" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 120)
-
-[node name="Colectable128" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 136)
-
-[node name="Colectable129" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 152)
-
-[node name="Colectable130" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 168)
-
-[node name="Colectable131" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 184)
-
-[node name="Colectable132" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(216, 200)
-
-[node name="Colectable133" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(232, 184)
-
-[node name="Colectable134" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(264, 184)
-
-[node name="Colectable135" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(248, 184)
-
-[node name="Colectable136" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(248, 120)
-
-[node name="Colectable137" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(264, 120)
-
-[node name="Colectable138" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(232, 120)
-
-[node name="Colectable139" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 120)
-
-[node name="Colectable140" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 104)
-
-[node name="Colectable141" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(152, 104)
-
-[node name="Colectable142" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(120, 104)
-
-[node name="Colectable143" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(136, 104)
-
-[node name="Colectable144" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 136)
-
-[node name="Colectable145" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 152)
-
-[node name="Colectable146" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 168)
-
-[node name="Colectable147" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 184)
-
-[node name="Colectable148" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 200)
-
-[node name="Colectable149" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(200, 152)
-
-[node name="Colectable34" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(184, 88)
-
-[node name="Colectable35" parent="Coins" instance=ExtResource("2_4f5t5")]
-position = Vector2(200, 88)
 
 [node name="Player" parent="." instance=ExtResource("3_bvx83")]
 position = Vector2(136, 248)
@@ -1116,3 +705,72 @@ target = NodePath("../Warp_B2")
 [node name="Warp_B2" parent="Warps" node_paths=PackedStringArray("target") instance=ExtResource("4_uly50")]
 position = Vector2(-8, 184)
 target = NodePath("../Warp_B1")
+
+[node name="Ghosts" type="Node" parent="."]
+
+[node name="Blinky" parent="Ghosts" instance=ExtResource("5_3s70i")]
+position = Vector2(104, 56)
+SPEED = 70.0
+SCATTER_SPEED = 50.0
+SCATTER_POSITION = NodePath("../../ScatterPositions/Blinky")
+
+[node name="Pinky" parent="Ghosts" instance=ExtResource("6_o7pul")]
+position = Vector2(232, 24)
+SPEED = 70.0
+SCATTER_POSITION = NodePath("../../ScatterPositions/Pinky")
+
+[node name="Inky" parent="Ghosts" instance=ExtResource("7_v630e")]
+position = Vector2(40, 24)
+SPEED = 70.0
+SCATTER_POSITION = NodePath("../../ScatterPositions/Inky")
+
+[node name="Clyde" parent="Ghosts" instance=ExtResource("8_ab2bt")]
+position = Vector2(216, 56)
+SPEED = 70.0
+SCATTER_POSITION = NodePath("../../ScatterPositions/Clyde")
+
+[node name="ScatterPositions" type="Node" parent="."]
+
+[node name="Blinky" type="Marker2D" parent="ScatterPositions"]
+position = Vector2(24, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Blinky"]
+modulate = Color(1, 0.106805, 0.0694922, 1)
+texture_filter = 1
+texture = ExtResource("1_bkjas")
+offset = Vector2(-7, 0)
+region_enabled = true
+region_rect = Rect2(128, 48, 16, 16)
+
+[node name="Clyde" type="Marker2D" parent="ScatterPositions"]
+position = Vector2(248, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Clyde"]
+modulate = Color(1, 0.443005, 0.042371, 1)
+texture_filter = 1
+texture = ExtResource("1_bkjas")
+offset = Vector2(-7, 0)
+region_enabled = true
+region_rect = Rect2(128, 48, 16, 16)
+
+[node name="Inky" type="Marker2D" parent="ScatterPositions"]
+position = Vector2(24, 296)
+
+[node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Inky"]
+modulate = Color(0.116635, 0.970152, 1, 1)
+texture_filter = 1
+texture = ExtResource("1_bkjas")
+offset = Vector2(-7, 0)
+region_enabled = true
+region_rect = Rect2(128, 48, 16, 16)
+
+[node name="Pinky" type="Marker2D" parent="ScatterPositions"]
+position = Vector2(248, 296)
+
+[node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Pinky"]
+modulate = Color(0.896521, 0.242711, 1, 1)
+texture_filter = 1
+texture = ExtResource("1_bkjas")
+offset = Vector2(-7, 0)
+region_enabled = true
+region_rect = Rect2(128, 48, 16, 16)
