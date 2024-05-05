@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c8a6nfdf1qsdl"]
+
+[ext_resource type="Texture2D" uid="uid://bab40pqlikdfq" path="res://Scenes/UI/UI_Theme.png" id="1_gyt8q"]
+
+[resource]
+atlas = ExtResource("1_gyt8q")
+region = Rect2(0, 0, 16, 16)
+filter_clip = true

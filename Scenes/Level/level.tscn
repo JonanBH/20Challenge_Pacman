@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcddbw53m8xq"]
+[gd_scene load_steps=17 format=3 uid="uid://dcddbw53m8xq"]
 
 [ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_xp41s"]
 [ext_resource type="Texture2D" uid="uid://bo8axi35l5kpb" path="res://Pacman_Tileset.png" id="2_yamta"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/HUD.gd" id="10_pakll"]
 [ext_resource type="FontFile" uid="uid://u615p6kjcn8t" path="res://Assets/Fonts/Kenney Pixel.ttf" id="10_thxpq"]
 [ext_resource type="Texture2D" uid="uid://dvmdyl4sjn34u" path="res://Scenes/UI/PacLive.png" id="12_j0f4w"]
+[ext_resource type="Theme" uid="uid://bcqdkvg6rj1y" path="res://Scenes/UI/base_theme.tres" id="13_8aewj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7j1mg"]
 vertices = PackedVector2Array(153, 153, 119, 153, 119, 135, 153, 135, 249, 297, 23, 297, 87, 295, 89, 295, 247, 249, 185, 249, 119, 247, 121, 247, 249, 57, 217, 57, 167, 55, 169, 55, 25, 295, 87, 151, 87, 89, 89, 89, 89, 215, 119, 57, 57, 57, 71, 55, 73, 55, 119, 217, 57, 217, 87, 215, 215, 87, 215, 57, 217, 119, 153, 57, 151, 55, 215, 151, 215, 89, 217, 121, 217, 183, 215, 215, 215, 153, 217, 185, 217, 247, 57, 215, 119, 87, 121, 55, 121, 103, 119, 89, 25, 55, 55, 57, 249, 23, 247, 55, 247, 25, 199, 23, 201, 25, 199, 55, 201, 55, 105, 55, 151, 103, 153, 87, 249, 247, 247, 295, 215, 247, 23, 247, 25, 249, 55, 247, 87, 249, 281, 119, 281, 121, 185, 89, 281, 183, 281, 185, 185, 151, 185, 153, 185, 215, 183, 215, 183, 89, 153, 89, 153, 105, 119, 105, 57, 87, 57, 89, 215, 217, 153, 217, 153, 215, 185, 295, 183, 295, 183, 249, 89, 249, 57, 247, 55, 185, -9, 185, -9, 183, 55, 183, 55, 121, -9, 121, -9, 119, 55, 119, 153, 247, 151, 247, 151, 185, 153, 183, 119, 183, 121, 185, 119, 215, 169, 23, 167, 25, 103, 23, 105, 25, 103, 55, 73, 23, 71, 25, 23, 23, 25, 25, 23, 57, 57, 151, 57, 153, 87, 153)
@@ -668,7 +669,7 @@ sources/0 = SubResource("TileSetAtlasSource_krnw4")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_xp41s")
-level_color = Color(1, 0.686622, 0.709024, 1)
+level_colors = Array[Color]([Color(0.429688, 0.171182, 0.174388, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(0.732088, 0.122755, 0.777344, 1)])
 spawn_increments = Array[int]([10, 25, 40])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -745,6 +746,7 @@ SCATTER_POSITION = NodePath("../../ScatterPositions/Clyde")
 [node name="ScatterPositions" type="Node" parent="."]
 
 [node name="Blinky" type="Marker2D" parent="ScatterPositions"]
+visible = false
 position = Vector2(24, 24)
 
 [node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Blinky"]
@@ -756,6 +758,7 @@ region_enabled = true
 region_rect = Rect2(128, 48, 16, 16)
 
 [node name="Clyde" type="Marker2D" parent="ScatterPositions"]
+visible = false
 position = Vector2(248, 24)
 
 [node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Clyde"]
@@ -767,6 +770,7 @@ region_enabled = true
 region_rect = Rect2(128, 48, 16, 16)
 
 [node name="Inky" type="Marker2D" parent="ScatterPositions"]
+visible = false
 position = Vector2(24, 296)
 
 [node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Inky"]
@@ -778,6 +782,7 @@ region_enabled = true
 region_rect = Rect2(128, 48, 16, 16)
 
 [node name="Pinky" type="Marker2D" parent="ScatterPositions"]
+visible = false
 position = Vector2(248, 296)
 
 [node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Pinky"]
@@ -851,13 +856,13 @@ horizontal_alignment = 2
 [node name="HB_HIScore" type="HBoxContainer" parent="HUD/VBoxContainer"]
 layout_mode = 2
 
-[node name="LB_Score_Tag" type="Label" parent="HUD/VBoxContainer/HB_HIScore"]
+[node name="LB_HIScore_Tag" type="Label" parent="HUD/VBoxContainer/HB_HIScore"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_thxpq")
 text = "HI  SCORE:"
 
-[node name="LB_Score" type="Label" parent="HUD/VBoxContainer/HB_HIScore"]
+[node name="LB_HIScore" type="Label" parent="HUD/VBoxContainer/HB_HIScore"]
 texture_filter = 1
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -905,7 +910,179 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("12_j0f4w")
 
+[node name="GameOverScreen" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HUD/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 0.509804)
+
+[node name="Lb_GameOver" type="Label" parent="HUD/GameOverScreen/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_top = 24.0
+offset_right = 109.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.843137, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_thxpq")
+theme_override_font_sizes/font_size = 64
+text = "Game Over!"
+
+[node name="Lb_NewHighScore" type="Label" parent="HUD/GameOverScreen/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_top = 88.0
+offset_right = 109.0
+offset_bottom = 136.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.770984, 0, 1)
+theme_override_fonts/font = ExtResource("10_thxpq")
+theme_override_font_sizes/font_size = 24
+text = "NEW HIGH SCORE!"
+horizontal_alignment = 1
+
+[node name="Lb_FinalScore" type="Label" parent="HUD/GameOverScreen/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_top = 120.0
+offset_right = 109.0
+offset_bottom = 168.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.987591, 0.960164, 1, 1)
+theme_override_fonts/font = ExtResource("10_thxpq")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/GameOverScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -184.0
+offset_right = 44.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Btn_PlayAgain" type="Button" parent="HUD/GameOverScreen/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("13_8aewj")
+text = "Play Again"
+
+[node name="Btn_BackToMenu" type="Button" parent="HUD/GameOverScreen/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("13_8aewj")
+text = "Main Menu"
+
+[node name="VictoryScreen" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HUD/VictoryScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 0.509804)
+
+[node name="Lb_Victory" type="Label" parent="HUD/VictoryScreen/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_right = 109.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("10_thxpq")
+theme_override_font_sizes/font_size = 64
+text = "Victory!"
+horizontal_alignment = 1
+
+[node name="Lb_CurrentScore" type="Label" parent="HUD/VictoryScreen/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_top = 56.0
+offset_right = 109.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.987591, 0.960164, 1, 1)
+theme_override_fonts/font = ExtResource("10_thxpq")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VictoryScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -184.0
+offset_right = 44.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Btn_NextLevel" type="Button" parent="HUD/VictoryScreen/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("13_8aewj")
+text = "Play Again"
+
+[node name="TemporaryRestartGame" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="ResetTimer" to="." method="reset_state"]
 [connection signal="timeout" from="UnlockPlay" to="." method="_on_unlock_play_timeout"]
+[connection signal="pressed" from="HUD/GameOverScreen/ColorRect/VBoxContainer/Btn_PlayAgain" to="HUD" method="_on_btn_play_again_pressed"]
+[connection signal="pressed" from="HUD/GameOverScreen/ColorRect/VBoxContainer/Btn_BackToMenu" to="HUD" method="_on_btn_back_to_menu_pressed"]
+[connection signal="pressed" from="HUD/VictoryScreen/ColorRect/VBoxContainer/Btn_NextLevel" to="HUD" method="_on_btn_next_level_pressed"]
+[connection signal="timeout" from="TemporaryRestartGame" to="." method="_on_temporary_restart_game_timeout"]
 
 [editable path="EnemySpawner"]

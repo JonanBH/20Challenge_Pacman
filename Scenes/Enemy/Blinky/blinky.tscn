@@ -11,6 +11,5 @@ script = ExtResource("2_byso6")
 modulate = Color(1, 0.0780919, 0.0855524, 1)
 
 [node name="NavigationAgent2D" parent="." index="3"]
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0.00728941, 0, 1)

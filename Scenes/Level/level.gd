@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var spawnables_layer : int = 2
-@export var level_color : Color = Color.BLUE
+@export var level_colors : Array[Color]
 @export var spawn_increments : Array[int]
 
 @onready var coins = $Coins
@@ -11,6 +11,7 @@ extends Node2D
 @onready var enemy_spawner = $EnemySpawner
 @onready var player_starting_spot = $PlayerStartingSpot
 @onready var unlock_play = $UnlockPlay
+@onready var hud = $HUD
 
 
 
@@ -22,7 +23,7 @@ var collected_dots = 0
 
 func _ready():
 	_prepare_spawnables()
-	tile_map.set_layer_modulate(1, level_color)
+	tile_map.set_layer_modulate(0, level_colors[randi_range(0, level_colors.size() - 1)])
 	player.power_finished.connect(_power_finished)
 	player.died.connect(_player_died)
 	
@@ -80,7 +81,12 @@ func _dot_colected():
 		enemy_spawner.increment_max_enemies_amount(1)
 	
 	if remaining_dots <= 0:
-		get_tree().reload_current_scene()
+		#call_deferred("_reload_scene")
+		player.is_alive = false
+		for ghost : Enemy in ghosts.get_children():
+			ghost.current_state = Enemy.State.IDLE
+		
+		hud.show_victory_screen()
 
 
 func power_pellet_collected():
@@ -112,7 +118,11 @@ func _player_died():
 	
 	if GameState.lives > 0:
 		$ResetTimer.start()
-		
+	else:
+		if GameState.score > GameState.hi_score:
+			PlayerPrefs.set_pref(GameState.HI_SCORE_TAG, GameState.score)
+			
+		hud.show_game_over()
 
 
 func reset_state():
@@ -129,3 +139,13 @@ func reset_state():
 
 func _on_unlock_play_timeout():
 	get_tree().paused = false
+
+
+func _on_temporary_restart_game_timeout():
+	GameState.hi_score = GameState.score
+	GameState.reset()
+	get_tree().reload_current_scene()
+
+
+func _reload_scene():
+	get_tree().reload_current_scene()

@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="20 Challenge Pacman"
+run/main_scene="res://Scenes/UI/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameState="*res://Autoload/game_state.gd"
+PlayerPrefs="*res://addons/PlayerPrefs/PlayerPrefs.tscn"
 
 [display]
 
@@ -25,6 +27,10 @@ window/size/viewport_height=368
 window/size/window_width_override=544
 window/size/window_height_override=736
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/PlayerPrefs/plugin.cfg")
 
 [input]
 
@@ -63,3 +69,4 @@ right={
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.105469, 0.105469, 0.105469, 1)
