@@ -119,6 +119,9 @@ func _player_died():
 	if GameState.lives > 0:
 		$ResetTimer.start()
 	else:
+		if GameState.score > GameState.hi_score:
+			PlayerPrefs.set_pref(GameState.HI_SCORE_TAG, GameState.score)
+			
 		hud.show_game_over()
 
 
