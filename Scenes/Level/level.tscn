@@ -1,13 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcddbw53m8xq"]
+[gd_scene load_steps=16 format=3 uid="uid://dcddbw53m8xq"]
 
-[ext_resource type="Script" path="res://Scenes/game.gd" id="1_24mwn"]
-[ext_resource type="Texture2D" uid="uid://bo8axi35l5kpb" path="res://Pacman_Tileset.png" id="1_bkjas"]
-[ext_resource type="PackedScene" uid="uid://diwuois3yefss" path="res://Scenes/Player/player.tscn" id="3_bvx83"]
-[ext_resource type="PackedScene" uid="uid://dmoof8e4pvlor" path="res://Scenes/Warp/warp.tscn" id="4_uly50"]
-[ext_resource type="PackedScene" uid="uid://c1jgxpxqqljgx" path="res://Scenes/Enemy/Blinky/blinky.tscn" id="5_3s70i"]
-[ext_resource type="PackedScene" uid="uid://x7cwf8sdtas0" path="res://Scenes/Enemy/Pinky/pinky.tscn" id="6_o7pul"]
-[ext_resource type="PackedScene" uid="uid://cwpxm4n3o2yjp" path="res://Scenes/Enemy/Inky/inky.tscn" id="7_v630e"]
-[ext_resource type="PackedScene" uid="uid://dvsx2n2cgfe1f" path="res://Scenes/Enemy/Clyde/clyde.tscn" id="8_ab2bt"]
+[ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_xp41s"]
+[ext_resource type="Texture2D" uid="uid://bo8axi35l5kpb" path="res://Pacman_Tileset.png" id="2_yamta"]
+[ext_resource type="PackedScene" uid="uid://diwuois3yefss" path="res://Scenes/Player/player.tscn" id="3_dw6ql"]
+[ext_resource type="PackedScene" uid="uid://dmoof8e4pvlor" path="res://Scenes/Warp/warp.tscn" id="4_fjola"]
+[ext_resource type="PackedScene" uid="uid://c1jgxpxqqljgx" path="res://Scenes/Enemy/Blinky/blinky.tscn" id="5_2geb4"]
+[ext_resource type="PackedScene" uid="uid://x7cwf8sdtas0" path="res://Scenes/Enemy/Pinky/pinky.tscn" id="6_yqwpg"]
+[ext_resource type="PackedScene" uid="uid://cwpxm4n3o2yjp" path="res://Scenes/Enemy/Inky/inky.tscn" id="7_5c1ow"]
+[ext_resource type="PackedScene" uid="uid://dvsx2n2cgfe1f" path="res://Scenes/Enemy/Clyde/clyde.tscn" id="8_gpa40"]
+[ext_resource type="PackedScene" uid="uid://chma1wtmmudni" path="res://Scenes/EnemySpawner/enemy_spawner.tscn" id="9_akvfj"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD.gd" id="10_pakll"]
+[ext_resource type="FontFile" uid="uid://u615p6kjcn8t" path="res://Assets/Fonts/Kenney Pixel.ttf" id="10_thxpq"]
+[ext_resource type="Texture2D" uid="uid://dvmdyl4sjn34u" path="res://Scenes/UI/PacLive.png" id="12_j0f4w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7j1mg"]
 vertices = PackedVector2Array(153, 153, 119, 153, 119, 135, 153, 135, 249, 297, 23, 297, 87, 295, 89, 295, 247, 249, 185, 249, 119, 247, 121, 247, 249, 57, 217, 57, 167, 55, 169, 55, 25, 295, 87, 151, 87, 89, 89, 89, 89, 215, 119, 57, 57, 57, 71, 55, 73, 55, 119, 217, 57, 217, 87, 215, 215, 87, 215, 57, 217, 119, 153, 57, 151, 55, 215, 151, 215, 89, 217, 121, 217, 183, 215, 215, 215, 153, 217, 185, 217, 247, 57, 215, 119, 87, 121, 55, 121, 103, 119, 89, 25, 55, 55, 57, 249, 23, 247, 55, 247, 25, 199, 23, 201, 25, 199, 55, 201, 55, 105, 55, 151, 103, 153, 87, 249, 247, 247, 295, 215, 247, 23, 247, 25, 249, 55, 247, 87, 249, 281, 119, 281, 121, 185, 89, 281, 183, 281, 185, 185, 151, 185, 153, 185, 215, 183, 215, 183, 89, 153, 89, 153, 105, 119, 105, 57, 87, 57, 89, 215, 217, 153, 217, 153, 215, 185, 295, 183, 295, 183, 249, 89, 249, 57, 247, 55, 185, -9, 185, -9, 183, 55, 183, 55, 121, -9, 121, -9, 119, 55, 119, 153, 247, 151, 247, 151, 185, 153, 183, 119, 183, 121, 185, 119, 215, 169, 23, 167, 25, 103, 23, 105, 25, 103, 55, 73, 23, 71, 25, 23, 23, 25, 25, 23, 57, 57, 151, 57, 153, 87, 153)
@@ -18,7 +22,7 @@ source_geometry_group_name = &"navigation"
 agent_radius = 7.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_krnw4"]
-texture = ExtResource("1_bkjas")
+texture = ExtResource("2_yamta")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -662,9 +666,10 @@ terrain_set_0/terrain_1/name = "Border2"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_krnw4")
 
-[node name="Game" type="Node2D"]
-script = ExtResource("1_24mwn")
+[node name="Level" type="Node2D"]
+script = ExtResource("1_xp41s")
 level_color = Color(1, 0.686622, 0.709024, 1)
+spawn_increments = Array[int]([10, 25, 40])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_7j1mg")
@@ -684,49 +689,57 @@ layer_2/tile_data = PackedInt32Array(1179650, 0, 3, 1179651, 0, 3, 1179652, 0, 3
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("3_bvx83")]
+[node name="Player" parent="." instance=ExtResource("3_dw6ql")]
 position = Vector2(136, 248)
 SPEED = 100.0
 
 [node name="Warps" type="Node" parent="."]
 
-[node name="Warp_A1" parent="Warps" node_paths=PackedStringArray("target") instance=ExtResource("4_uly50")]
+[node name="Warp_A1" parent="Warps" node_paths=PackedStringArray("target") instance=ExtResource("4_fjola")]
 position = Vector2(280, 120)
 target = NodePath("../Warp_A2")
 
-[node name="Warp_A2" parent="Warps" node_paths=PackedStringArray("target") instance=ExtResource("4_uly50")]
+[node name="Warp_A2" parent="Warps" node_paths=PackedStringArray("target") instance=ExtResource("4_fjola")]
 position = Vector2(-8, 120)
 target = NodePath("../Warp_A1")
 
-[node name="Warp_B1" parent="Warps" node_paths=PackedStringArray("target") instance=ExtResource("4_uly50")]
+[node name="Warp_B1" parent="Warps" node_paths=PackedStringArray("target") instance=ExtResource("4_fjola")]
 position = Vector2(280, 184)
 target = NodePath("../Warp_B2")
 
-[node name="Warp_B2" parent="Warps" node_paths=PackedStringArray("target") instance=ExtResource("4_uly50")]
+[node name="Warp_B2" parent="Warps" node_paths=PackedStringArray("target") instance=ExtResource("4_fjola")]
 position = Vector2(-8, 184)
 target = NodePath("../Warp_B1")
 
 [node name="Ghosts" type="Node" parent="."]
 
-[node name="Blinky" parent="Ghosts" instance=ExtResource("5_3s70i")]
+[node name="Blinky" parent="Ghosts" instance=ExtResource("5_2geb4")]
 position = Vector2(104, 56)
+collision_mask = 3
 SPEED = 70.0
+FLEE_SPEED = 40.0
 SCATTER_SPEED = 50.0
 SCATTER_POSITION = NodePath("../../ScatterPositions/Blinky")
 
-[node name="Pinky" parent="Ghosts" instance=ExtResource("6_o7pul")]
+[node name="Pinky" parent="Ghosts" instance=ExtResource("6_yqwpg")]
 position = Vector2(232, 24)
+collision_mask = 3
 SPEED = 70.0
+FLEE_SPEED = 40.0
 SCATTER_POSITION = NodePath("../../ScatterPositions/Pinky")
 
-[node name="Inky" parent="Ghosts" instance=ExtResource("7_v630e")]
+[node name="Inky" parent="Ghosts" instance=ExtResource("7_5c1ow")]
 position = Vector2(40, 24)
+collision_mask = 3
 SPEED = 70.0
+FLEE_SPEED = 40.0
 SCATTER_POSITION = NodePath("../../ScatterPositions/Inky")
 
-[node name="Clyde" parent="Ghosts" instance=ExtResource("8_ab2bt")]
+[node name="Clyde" parent="Ghosts" instance=ExtResource("8_gpa40")]
 position = Vector2(216, 56)
+collision_mask = 3
 SPEED = 70.0
+FLEE_SPEED = 40.0
 SCATTER_POSITION = NodePath("../../ScatterPositions/Clyde")
 
 [node name="ScatterPositions" type="Node" parent="."]
@@ -737,7 +750,7 @@ position = Vector2(24, 24)
 [node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Blinky"]
 modulate = Color(1, 0.106805, 0.0694922, 1)
 texture_filter = 1
-texture = ExtResource("1_bkjas")
+texture = ExtResource("2_yamta")
 offset = Vector2(-7, 0)
 region_enabled = true
 region_rect = Rect2(128, 48, 16, 16)
@@ -748,7 +761,7 @@ position = Vector2(248, 24)
 [node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Clyde"]
 modulate = Color(1, 0.443005, 0.042371, 1)
 texture_filter = 1
-texture = ExtResource("1_bkjas")
+texture = ExtResource("2_yamta")
 offset = Vector2(-7, 0)
 region_enabled = true
 region_rect = Rect2(128, 48, 16, 16)
@@ -759,7 +772,7 @@ position = Vector2(24, 296)
 [node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Inky"]
 modulate = Color(0.116635, 0.970152, 1, 1)
 texture_filter = 1
-texture = ExtResource("1_bkjas")
+texture = ExtResource("2_yamta")
 offset = Vector2(-7, 0)
 region_enabled = true
 region_rect = Rect2(128, 48, 16, 16)
@@ -770,7 +783,129 @@ position = Vector2(248, 296)
 [node name="Sprite2D" type="Sprite2D" parent="ScatterPositions/Pinky"]
 modulate = Color(0.896521, 0.242711, 1, 1)
 texture_filter = 1
-texture = ExtResource("1_bkjas")
+texture = ExtResource("2_yamta")
 offset = Vector2(-7, 0)
 region_enabled = true
 region_rect = Rect2(128, 48, 16, 16)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("9_akvfj")]
+position = Vector2(136, 152)
+
+[node name="SpawnDelay" parent="EnemySpawner" index="0"]
+wait_time = 3.0
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawner/HoldingSpots" index="0"]
+position = Vector2(121, 143)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawner/HoldingSpots" index="1"]
+position = Vector2(131, 143)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawner/HoldingSpots" index="2"]
+position = Vector2(141, 143)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawner/HoldingSpots" index="3"]
+position = Vector2(151, 143)
+
+[node name="SpawnSpot" parent="EnemySpawner" index="2"]
+position = Vector2(0, -48)
+
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="PlayerStartingSpot" type="Marker2D" parent="."]
+position = Vector2(136, 248)
+
+[node name="UnlockPlay" type="Timer" parent="."]
+process_mode = 3
+wait_time = 2.0
+one_shot = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("10_pakll")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+offset_left = 8.0
+offset_top = 328.0
+offset_right = 94.0
+offset_bottom = 368.0
+
+[node name="HB_Score" type="HBoxContainer" parent="HUD/VBoxContainer"]
+layout_mode = 2
+
+[node name="LB_Score_Tag" type="Label" parent="HUD/VBoxContainer/HB_Score"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_thxpq")
+text = "SCORE:"
+
+[node name="LB_Score" type="Label" parent="HUD/VBoxContainer/HB_Score"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_thxpq")
+text = "0"
+horizontal_alignment = 2
+
+[node name="HB_HIScore" type="HBoxContainer" parent="HUD/VBoxContainer"]
+layout_mode = 2
+
+[node name="LB_Score_Tag" type="Label" parent="HUD/VBoxContainer/HB_HIScore"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_thxpq")
+text = "HI  SCORE:"
+
+[node name="LB_Score" type="Label" parent="HUD/VBoxContainer/HB_HIScore"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_thxpq")
+text = "0"
+horizontal_alignment = 2
+
+[node name="HB_Lives" type="HBoxContainer" parent="HUD"]
+offset_left = 136.0
+offset_top = 328.0
+offset_right = 176.0
+offset_bottom = 344.0
+
+[node name="LB_Score_Tag" type="Label" parent="HUD/HB_Lives"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_thxpq")
+text = "LIVES:"
+
+[node name="HB_Lives_Count" type="HBoxContainer" parent="HUD/HB_Lives"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HB_Lives/HB_Lives_Count"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_j0f4w")
+
+[node name="TextureRect2" type="TextureRect" parent="HUD/HB_Lives/HB_Lives_Count"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_j0f4w")
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/HB_Lives/HB_Lives_Count"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_j0f4w")
+
+[node name="TextureRect4" type="TextureRect" parent="HUD/HB_Lives/HB_Lives_Count"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_j0f4w")
+
+[node name="TextureRect5" type="TextureRect" parent="HUD/HB_Lives/HB_Lives_Count"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_j0f4w")
+
+[connection signal="timeout" from="ResetTimer" to="." method="reset_state"]
+[connection signal="timeout" from="UnlockPlay" to="." method="_on_unlock_play_timeout"]
+
+[editable path="EnemySpawner"]

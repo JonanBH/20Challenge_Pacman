@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh2tr0uymgqru"]
+[gd_scene load_steps=9 format=3 uid="uid://bh2tr0uymgqru"]
 
 [ext_resource type="Texture2D" uid="uid://bo8axi35l5kpb" path="res://Pacman_Tileset.png" id="1_h6dlt"]
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy.gd" id="1_owlub"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_io11h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn0fg"]
 atlas = ExtResource("1_h6dlt")
 region = Rect2(32, 48, 16, 16)
 
@@ -11,7 +11,22 @@ region = Rect2(32, 48, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_io11h")
+"texture": SubResource("AtlasTexture_bn0fg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rqnd"]
+atlas = ExtResource("1_h6dlt")
+region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xfqn7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rqnd")
 }],
 "loop": true,
 "name": &"default",
@@ -19,9 +34,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ldhv5"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i5dme"]
 radius = 5.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 8
 motion_mode = 1
 script = ExtResource("1_owlub")
 
@@ -29,9 +48,14 @@ script = ExtResource("1_owlub")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qj37c")
 
+[node name="WeakSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(0.182632, 1, 0.259805, 1)
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xfqn7")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ldhv5")
-disabled = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 6.0
@@ -43,4 +67,13 @@ radius = 16.0
 wait_time = 0.5
 autostart = true
 
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CircleShape2D_i5dme")
+debug_color = Color(0.7, 0.0513562, 0.00954999, 0.42)
+
 [connection signal="timeout" from="Recalculate_Timer" to="." method="_on_recalculate_timer_timeout"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

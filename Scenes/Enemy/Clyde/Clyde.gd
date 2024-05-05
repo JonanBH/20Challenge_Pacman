@@ -12,7 +12,7 @@ func _follow_IA():
 	
 	var direction : Vector2 = navigation_agent_2d.get_next_path_position() - global_position
 	direction = direction.normalized()
-	velocity = direction * SPEED
+	velocity = direction * current_speed
 	
 	move_and_slide()
 	
@@ -29,7 +29,7 @@ func _scatter_IA():
 	
 	var direction : Vector2 = navigation_agent_2d.get_next_path_position() - global_position
 	direction = direction.normalized()
-	velocity = direction * SPEED
+	velocity = direction * current_speed
 	
 	move_and_slide()
 	

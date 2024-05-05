@@ -5,6 +5,7 @@
 
 [node name="PowerPellet" instance=ExtResource("1_l57s4")]
 script = ExtResource("2_vwjfh")
+SCORE = 200
 
 [node name="Sprite2D" parent="." index="0"]
 region_rect = Rect2(16, 48, 16, 16)

@@ -9,7 +9,7 @@ script = ExtResource("2_7wvjd")
 [node name="AnimatedSprite2D" parent="." index="0"]
 modulate = Color(1, 0.583736, 0.0790192, 1)
 
-[node name="NavigationAgent2D" parent="." index="2"]
+[node name="NavigationAgent2D" parent="." index="3"]
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0.381139, 0.0453393, 1)
