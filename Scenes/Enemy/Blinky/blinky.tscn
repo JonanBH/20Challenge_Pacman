@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1jgxpxqqljgx"]
+
+[ext_resource type="PackedScene" uid="uid://bh2tr0uymgqru" path="res://Scenes/Enemy/enemy.tscn" id="1_bj445"]
+[ext_resource type="Script" path="res://Blinky.gd" id="2_byso6"]
+
+[node name="Blinky" instance=ExtResource("1_bj445")]
+wall_min_slide_angle = 0.0
+script = ExtResource("2_byso6")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+modulate = Color(1, 0.0780919, 0.0855524, 1)
+
+[node name="NavigationAgent2D" parent="." index="3"]
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0.00728941, 0, 1)
