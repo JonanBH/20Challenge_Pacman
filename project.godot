@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*res://Autoload/game_state.gd"
 PlayerPrefs="*res://addons/PlayerPrefs/PlayerPrefs.tscn"
+AudioPlayer="*res://Autoload/audio_player.tscn"
 
 [display]
 
