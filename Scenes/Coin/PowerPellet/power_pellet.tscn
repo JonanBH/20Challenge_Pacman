@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://6ouh3gj6rxr0"]
+[gd_scene load_steps=4 format=3 uid="uid://6ouh3gj6rxr0"]
 
 [ext_resource type="PackedScene" uid="uid://bddkljvh3gjwl" path="res://Scenes/Coin/colectable.tscn" id="1_l57s4"]
 [ext_resource type="Script" path="res://Scenes/Coin/PowerPellet/power_pellet.gd" id="2_vwjfh"]
+[ext_resource type="AudioStream" uid="uid://tcubtby7g1uj" path="res://Assets/Audio/SFX/PowerDot.ogg" id="3_05a10"]
 
 [node name="PowerPellet" instance=ExtResource("1_l57s4")]
 script = ExtResource("2_vwjfh")
 SCORE = 200
+randomize_pich = false
 
 [node name="Sprite2D" parent="." index="0"]
 region_rect = Rect2(16, 48, 16, 16)
+
+[node name="CollectedAudio" parent="." index="2"]
+stream = ExtResource("3_05a10")

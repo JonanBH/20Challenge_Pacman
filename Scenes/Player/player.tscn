@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://diwuois3yefss"]
+[gd_scene load_steps=11 format=3 uid="uid://diwuois3yefss"]
 
 [ext_resource type="Texture2D" uid="uid://bo8axi35l5kpb" path="res://Pacman_Tileset.png" id="1_8bvj8"]
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_do08x"]
+[ext_resource type="AudioStream" uid="uid://i8fi0snl2ri" path="res://Assets/Audio/SFX/Death.ogg" id="3_os1wu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3hm07"]
 atlas = ExtResource("1_8bvj8")
@@ -87,6 +88,10 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
 shape = SubResource("CircleShape2D_sm5cx")
 debug_color = Color(0.7, 0.120041, 0.114818, 0.42)
+
+[node name="SFX-Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_os1wu")
+bus = &"SFX"
 
 [connection signal="timeout" from="PowerDotDelay" to="." method="_on_power_dot_delay_timeout"]
 [connection signal="timeout" from="CloseToFinishPowerDot" to="." method="_on_close_to_finish_power_dot_timeout"]

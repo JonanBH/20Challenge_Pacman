@@ -34,6 +34,8 @@ var angles = {
 	"left": $Raycasts/ShapeCast2D_left,
 	"right": $Raycasts/ShapeCast2D_right
 }
+@onready var sfx_death = $"SFX-Death"
+
 
 var buffered_move : String = ""
 
@@ -88,6 +90,7 @@ func die():
 	if !is_alive:
 		return
 	
+	sfx_death.play()
 	is_alive = false
 	velocity =  Vector2.ZERO
 	died.emit()

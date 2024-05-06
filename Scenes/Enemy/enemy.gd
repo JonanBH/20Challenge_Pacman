@@ -27,6 +27,8 @@ var current_state := State.FOLLOW
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var weak_sprite = $WeakSprite
 @onready var current_position : Vector2 = position
+@onready var audio_eaten = $Audio_Eaten
+
 
 func _ready():
 	call_deferred("_remove_collision_wth_ghosts")
@@ -142,7 +144,10 @@ func end_flee_from_pacman():
 func eaten():
 	if current_state != State.FLEE:
 		return
-
+	
+	GameState.add_score(1000)
+	current_speed = SPEED
+	audio_eaten.play()
 	died.emit(self)
 	animated_sprite_2d.show()
 	weak_sprite.hide()

@@ -14,6 +14,51 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o3m45")
 
+[node name="LB_Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 40.0
+offset_right = 55.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_5f8np")
+theme_override_font_sizes/font_size = 34
+text = "Mr. Eater"
+
+[node name="LB_HIScore_Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 88.0
+offset_right = 55.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_5f8np")
+theme_override_font_sizes/font_size = 24
+text = "Hi Score :"
+horizontal_alignment = 1
+
+[node name="LB_HiScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 104.0
+offset_right = 55.0
+offset_bottom = 131.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_5f8np")
+theme_override_font_sizes/font_size = 24
+text = "0
+"
+horizontal_alignment = 1
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -24,7 +69,7 @@ anchor_bottom = 0.5
 offset_left = -50.0
 offset_top = -32.0
 offset_right = 50.0
-offset_bottom = 88.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -64,6 +109,12 @@ layout_mode = 2
 theme = ExtResource("1_3ksb3")
 text = "Play"
 
+[node name="Btn_Credits" type="Button" parent="PanelContainer/NinePatchRect/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_3ksb3")
+text = "Credits"
+
 [node name="Btn_Quit" type="Button" parent="PanelContainer/NinePatchRect/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
@@ -71,50 +122,71 @@ theme = ExtResource("1_3ksb3")
 text = "Quit
 "
 
-[node name="LB_Title" type="Label" parent="."]
+[node name="Panel_Credits" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -16.0
-offset_top = 40.0
-offset_right = 24.0
-offset_bottom = 63.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -160.0
+offset_right = 128.0
+offset_bottom = 160.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_5f8np")
-theme_override_font_sizes/font_size = 34
-text = "Mr. Eater"
+grow_vertical = 2
 
-[node name="LB_HIScore_Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -47.0
-offset_top = 88.0
-offset_right = 55.0
-offset_bottom = 115.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_5f8np")
-theme_override_font_sizes/font_size = 24
-text = "Hi Score :"
-horizontal_alignment = 1
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel_Credits"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_b02ii")
+region_rect = Rect2(32, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
-[node name="LB_HiScore" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -47.0
-offset_top = 104.0
-offset_right = 55.0
-offset_bottom = 131.0
-grow_horizontal = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Credits/NinePatchRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 232.0
+offset_bottom = 56.0
+
+[node name="Label" type="Label" parent="Panel_Credits/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5f8np")
-theme_override_font_sizes/font_size = 24
-text = "0
-"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+text = "* Developer : 
+    Jonathan  Danilo Moreira de 
+  Souza
+
+* Fonts by Kenney 
+    (www.kenney.nl)
+
+* Music by TipTopTomCat 
+      	(https://tiptoptomcat.itch.io)
+	      (unmodified)"
+
+[node name="Btn_Credits_Back" type="Button" parent="Panel_Credits/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -48.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_3ksb3")
+text = "Back"
 
 [connection signal="pressed" from="PanelContainer/NinePatchRect/HBoxContainer/VBoxContainer/Btn_Play" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="PanelContainer/NinePatchRect/HBoxContainer/VBoxContainer/Btn_Credits" to="." method="_on_btn_credits_pressed"]
 [connection signal="pressed" from="PanelContainer/NinePatchRect/HBoxContainer/VBoxContainer/Btn_Quit" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="Panel_Credits/NinePatchRect/Btn_Credits_Back" to="." method="_on_btn_credits_back_pressed"]

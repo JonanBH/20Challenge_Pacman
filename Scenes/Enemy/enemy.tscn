@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh2tr0uymgqru"]
+[gd_scene load_steps=10 format=3 uid="uid://bh2tr0uymgqru"]
 
 [ext_resource type="Texture2D" uid="uid://bo8axi35l5kpb" path="res://Pacman_Tileset.png" id="1_h6dlt"]
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy.gd" id="1_owlub"]
+[ext_resource type="AudioStream" uid="uid://cx8ea3f2kahsa" path="res://Assets/Audio/SFX/Eat.ogg" id="3_0b4c7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bn0fg"]
 atlas = ExtResource("1_h6dlt")
@@ -74,6 +75,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_i5dme")
 debug_color = Color(0.7, 0.0513562, 0.00954999, 0.42)
+
+[node name="Audio_Eaten" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0b4c7")
+bus = &"SFX"
 
 [connection signal="timeout" from="Recalculate_Timer" to="." method="_on_recalculate_timer_timeout"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

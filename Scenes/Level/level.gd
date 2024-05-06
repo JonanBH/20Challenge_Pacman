@@ -22,6 +22,7 @@ var remaining_dots = 0
 var collected_dots = 0
 
 func _ready():
+	AudioPlayer.play_track(3)
 	_prepare_spawnables()
 	tile_map.set_layer_modulate(0, level_colors[randi_range(0, level_colors.size() - 1)])
 	player.power_finished.connect(_power_finished)
@@ -87,6 +88,7 @@ func _dot_colected():
 			ghost.current_state = Enemy.State.IDLE
 		
 		hud.show_victory_screen()
+		AudioPlayer.play_track(4)
 
 
 func power_pellet_collected():
@@ -115,17 +117,21 @@ func _player_died():
 		ghost.end_flee_from_pacman()
 		ghost.current_position = ghost.global_position
 		ghost.current_state = Enemy.State.IDLE
+		
 	
 	if GameState.lives > 0:
 		$ResetTimer.start()
 	else:
+		AudioPlayer.play_track(2)
 		if GameState.score > GameState.hi_score:
 			PlayerPrefs.set_pref(GameState.HI_SCORE_TAG, GameState.score)
 			
 		hud.show_game_over()
+		
 
 
 func reset_state():
+	AudioPlayer.play_track(1)
 	player.global_position = player_starting_spot.global_position
 	player.reset()
 	
